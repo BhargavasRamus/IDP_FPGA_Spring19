@@ -2,15 +2,15 @@
 Fixed point matrix multiplication
 
 prerequists:
-  properly flashed RaspberryPi, icoboard, Arduino installed properly.
+  -properly flashed RaspberryPi, icoboard, Arduino installed properly.
   
-  download RaspberryPi from: https://www.raspberrypi.org/downloads/raspbian/ 
+  -download RaspberryPi from: https://www.raspberrypi.org/downloads/raspbian/ 
   and flash in the SD card following the instructions from :https://www.raspberrypi.org/documentation/installation/installing-images/README.md
   
-  download Arduino linux arm version from:https://www.arduino.cc/en/Main/Software
-  follow the steps provided in the website to install arduino in the RaspberryPi.
+  -download Arduino linux arm version from:https://www.arduino.cc/en/Main/Software
+  -follow the steps provided in the website to install arduino in the RaspberryPi.
   
-  use the below commands in the terminal of the RaspberryPi to download the required setup:
+  -use the below commands in the terminal of the RaspberryPi to download the required setup:
   
 cd
 git clone git://git.drogon.net/ wiringPi
@@ -40,11 +40,11 @@ cd yosys && make && sudo make install
 
   code compiling and executing:
   
-  after installing the required setup, compile Makefile in the terminal as follows:
-  make v_fname = <file_name>
+  -after installing the required setup, compile Makefile in the terminal as follows:
+  -make v_fname = <file_name>
   
-  the verilog file will be flashed in the icoboard (using icestorm).
+  -the verilog file will be flashed in the icoboard (using icestorm).
   
-  dump the arduino codes in different ports of the RaspberryPi.
+  -dump the arduino codes in different ports of the RaspberryPi.
   
-  provide input from Arduino serial monitor and then change the arduino port (tools->ports-><change_port_to_output>). open the  serial monitor to read output of the matrix multiplication. 
+  -provide input from Arduino serial monitor and then change the arduino port (tools->ports-><change_port_to_output>). open the  serial monitor to read output of the matrix multiplication. 
