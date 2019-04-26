@@ -48,13 +48,20 @@
   \end{figure}
 \end{frame}
 \begin{frame}[fragile]{Fixed Point Matrix Multiplication}
-\begin{itemize}
-    \item It is similar to a normal matrix multiplication, whereas here we use fixed point multiplication between the numbers.
-%    \item The input is sent through Arduino and then transmitted to the icoboard whenever the clock is triggered to positive.
-%    \item Icoboard is flashed with verilog code which includes fixed point matrix multiplication logic.
-%    \item After executing the matrix multiplication, Icoboard outputs the matrix value to another Arduino where output is displayed.
-\end{itemize}
-    
+It is similar to a normal matrix multiplication. Let us recall that inner product between two vectors.
+%    \begin{figure}
+%        \includegraphics[scale=0.35]{vector.png}
+%    \end{figure}
+%    \begin{figure}
+%        \includegraphics[scale=1]{matmul.jpg}
+%    \end{figure}
+  \begin{figure}
+  %\centering
+  % \hfill
+    \includegraphics[scale=0.3]{vector.png}
+\\From the figure it is clear that $C_{ij}$  = inner-product of $i^{th}$ row of matrix A and $j^{th}$ column of matrix B. \\
+    \includegraphics[scale=1]{matmul.jpg}
+\end{figure}
 \end{frame}
 
 
@@ -92,6 +99,16 @@
         \item Later, when outputs are stored in registers, the code triggers another signal to the Arduino to start printing the output matrix.
         \item the output Arduino will trigger a signal for taking outputs stored in the registers at every clock signal.
     \end{itemize}
+\end{frame}
+
+\section{References}
+\begin{frame}{References}
+    \begin{enumerate}
+        \item download and setup RaspberryPi from: \url{https://www.raspberrypi.org/downloads/raspbian/}
+        \item get Arduino setup from:  \url{https://www.arduino.cc/en/Main/Software}
+        \item Prorject codes are available in: \url{https://github.com/BhargavasRamus/IDP_FPGA_Spring19/tree/master/codes}
+    \end{enumerate}
+    
 \end{frame}
 
 {\setbeamercolor{palette primary}{fg=white, bg=blue!20}
