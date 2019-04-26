@@ -50,8 +50,9 @@
 \begin{frame}[fragile]{Fixed Point Matrix Multiplication}
 \begin{itemize}
     \item It is similar to a normal matrix multiplication, whereas here we use fixed point multiplication between the numbers.
-    \item
-    The input is stored in the BRAM memory block and after the computation output is also stored in BRAM memory block
+%    \item The input is sent through Arduino and then transmitted to the icoboard whenever the clock is triggered to positive.
+%    \item Icoboard is flashed with verilog code which includes fixed point matrix multiplication logic.
+%    \item After executing the matrix multiplication, Icoboard outputs the matrix value to another Arduino where output is displayed.
 \end{itemize}
     
 \end{frame}
@@ -61,9 +62,10 @@
 
 \begin{frame}{Problem Statement}
 	\begin{itemize}
-		\item input matrices will be taken from keypad.
-		\item fixed point numbers must be used to multiply and generate a matrix in Ico board (result of multiplication of two matrices).
-		\item the output will be displayed via Arduino.
+		 \item The input is sent through Arduino and then transmitted to the icoboard whenever the clock is triggered to positive.
+		 \item In order to flash verilog file in icoboard type make v\textunderscore fname = mat\textunderscore mul in terminal of RaspberryPi.
+        \item Icoboard is flashed with verilog code which includes fixed point matrix multiplication logic.
+        \item After executing the matrix multiplication, Icoboard outputs the matrix value to another Arduino where output is displayed.
 	\end{itemize}
 	
 \end{frame}
@@ -72,23 +74,26 @@
 
 \begin{frame}[fragile]{Implementation Strategy}
 	\begin{itemize}
-		\item mode of input is keypad which is connected to Arduino.
+		\item Arduino is used to input the matrix values. (i.e. matrix A and matrix B)
 		\item Arduino converts floating point input to fixed point output. 
 		\item Ico board receives input from Arduino where matrix multiplication is programmed.
-		\item Ico board sends the output after the multiplication process to Arduino.
-		\item The output matrix can be displayed in Arduino-python interface after floating point conversion.
+		\item The Project will be implemented for (\(n\times n\)) matrix. And 8-bit fixed-point numbers will be used (n must be edited in the Arduino and verilog codes).
+		\item For ease of demo, the implementation will be done for (\(2\times2\)) matrix.
+		\item Ico board sends the output after the multiplication process to another Arduino.
+		\item The output matrix can be displayed in Arduino serial monitor after floating point conversion.
 	\end{itemize}
-	The Project will be implemented for (\(3\times3\)) matrix. And 8-bit fixed-point numbers will be used.
 \end{frame}
-\section{Updates till now}
-\begin{frame}{Updates}
+\begin{frame}[fragile]{Implementation Strategy}
     \begin{itemize}
-        \item implemented multipliction of two $(4\times4)$ matrices in verilog.
-        \item The input for the matrices are signed 8-bit each and output is signed 11-bit.
-        \item The algorithm for Arduino to convert decimal inputs to binary output is completed. Inputs are taken from Serial monitor using Serial.read and then converted to binary and fractional binary.
+        \item whenever the input is provided at the serial monitor of the input Arduino, then a clock signal is triggered to positive edge.
+        \item every time the verilog code reads positive edge from the signal coming from the Arduino, the value of the input is stored in the registers.
+        \item after all the required inputs have been provided, the code stops taking inputs from Arduino. and triggers a signal for Arduino to start the matrix multiplication logic.
+        \item After the matrix multiplication is over, the values are stored in the registers. 
+        \item Later, when outputs are stored in registers, the code triggers another signal to the Arduino to start printing the output matrix.
+        \item the output Arduino will trigger a signal for taking outputs stored in the registers at every clock signal.
     \end{itemize}
-    
 \end{frame}
+
 {\setbeamercolor{palette primary}{fg=white, bg=blue!20}
 \begin{frame}[standout]
   \Huge{THANK YOU}
