@@ -1,0 +1,25 @@
+set_io clk R9
+set_io reset B7 
+set_io resOut N7
+set_io test R14
+set_io test1 M8
+
+set_io A[7] A5
+set_io A[6] A2
+set_io A[5] C3
+set_io A[4] B4
+set_io A[3] B8
+set_io A[2] A9
+set_io A[1] A10
+set_io A[0] A11
+
+
+
+set_io P[0] T15
+set_io P[1] T14
+set_io P[2] T11
+set_io P[3] R10
+set_io P[4] L9
+set_io P[5] G5
+set_io P[6] L7
+set_io P[7] N6
